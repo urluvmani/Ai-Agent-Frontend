@@ -12,7 +12,9 @@ const App = () => {
     if (!prompt.trim()) return;
     try {
       setLoading(true);
-      const response = await axios.post(`${process.env.BACKEND_URL || "http://localhost:3000"}/ai/code-view`, { prompt });
+     const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/code-view`, { prompt });
+
+
       setRes(response.data);
     } catch (error) {
       setRes("⚠️ Something went wrong. Please try again.");
